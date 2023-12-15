@@ -1,4 +1,4 @@
-PO# Stage 1: Build Stage
+#Stage 1: Build Stage
 FROM python:alpine as builder
 
 # Set the working directory in the builder stage
