@@ -1,4 +1,23 @@
-FROM python:latest
-COPY . /app
+# Stage 1: Build Stage
+FROM python:latest as builder
+
+# Set the working directory in the builder stage
+WORKDIR /app
+
+# Copy the entire content of the current directory into the builder stage
+COPY . .
+
+# Install Flask in the builder stage
 RUN pip install Flask
-CMD ["python" ,"app.py"]
+
+# Stage 2: Production Stage
+FROM python:latest
+
+# Set the working directory in the production stage
+WORKDIR /app
+
+# Copy the content from the builder stage to the production stage
+COPY --from=builder /app /app
+
+# Specify the default command to run when the container starts
+CMD ["python", "app.py"]
