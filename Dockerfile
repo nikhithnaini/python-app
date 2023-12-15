@@ -8,7 +8,8 @@ WORKDIR /app
 COPY . .
 
 # Install Flask in the builder stage
-RUN pip install Flask
+#RUN pip install Flask
+RUN apk update && apk add --no-cache python3-dev && pip install Flask
 
 # Stage 2: Production Stage
 FROM python:alpine
