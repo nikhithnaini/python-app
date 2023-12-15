@@ -1,4 +1,4 @@
-# Stage 1: Build Stage
+PO# Stage 1: Build Stage
 FROM python:alpine as builder
 
 # Set the working directory in the builder stage
@@ -18,6 +18,6 @@ WORKDIR /app
 
 # Copy the content from the builder stage to the production stage
 COPY --from=builder /app /app
-
+EXPOSE 80
 # Specify the default command to run when the container starts
 CMD ["python", "app.py"]
