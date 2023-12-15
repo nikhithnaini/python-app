@@ -8,7 +8,6 @@ WORKDIR /app
 COPY . .
 
 # Install Flask in the builder stage
-RUN sudo apt install pip
 RUN pip install Flask
 
 # Stage 2: Production Stage
