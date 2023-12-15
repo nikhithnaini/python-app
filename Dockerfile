@@ -1,5 +1,5 @@
 # Stage 1: Build Stage
-FROM python:latest as builder
+FROM python:alphine as builder
 
 # Set the working directory in the builder stage
 WORKDIR /app
@@ -11,7 +11,7 @@ COPY . .
 RUN pip install Flask
 
 # Stage 2: Production Stage
-FROM python:latest
+FROM python:alphine
 
 # Set the working directory in the production stage
 WORKDIR /app
